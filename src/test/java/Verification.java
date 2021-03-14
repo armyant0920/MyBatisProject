@@ -18,7 +18,7 @@ public class Verification {
 		boolean isSeven = false;
 
 		for (int i = 0; i < code.length(); i++) {
-			System.out.println("檢查第" + (i + 1) + "個字:");
+//			System.out.println("檢查第" + (i + 1) + "個字:");
 			char c = code.charAt(i);
 			if (!Character.isDigit(c)) {
 				System.err.println("含有非數字");
@@ -45,7 +45,7 @@ public class Verification {
 			}
 
 		}
-		System.out.println("sum=" + sum);
+//		System.out.println("sum=" + sum);
 
 		if (isSeven) {
 			if (sum % 10 == 0 || (sum + 1) % 10 == 0) {
