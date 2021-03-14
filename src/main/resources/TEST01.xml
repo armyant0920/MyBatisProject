@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- namespae如果要和Mapper綁定,名稱必須完全相符  -->
+<!-- <mapper namespace="test.test01"> -->
+<mapper namespace="Mapper.Mapper01">
+
+<!-- <select id="selectTestData" resultType="bean.Basebean"> -->
+
+<select id="selectByID" resultType="bean.Basebean" >
+<!--resultType="bean.Basebean"  -->
+<if test="1==1">
+select * from test_table where id=#{id}
+
+</if>
+
+</select>
+
+
+<select id="selectAll" resultType="bean.MyHashMap">
+
+select *from test_table
+</select>
+<select id="selectList" resultType="java.util.HashMap">
+select*from test_table order by id
+
+</select>
+<select id="selectList2" resultType="bean.MyHashMap">
+select a.id,b.*from test_table a,Table_2 b
+where a.name=b.name
+</select>  
+
+<select id="queryByName" resultType="bean.MyHashMap">
+select*from test_table where name like #{name}
+
+</select>
+
+
+<delete id="deletebyId">
+
+delete from test_table
+where id=#{id};
+
+
+
+</delete>
+
+<delete id="deleteByName">
+delete from test_table
+where name=#{name};
+</delete>
+
+<insert id="addOne" parameterType="bean.Basebean">
+insert into Test_table(name,name2) values(#{name},#{name2})
+
+</insert>
+<update id="updateName">
+update Test_table 
+set name=#{name},name2=#{name2} where id=#{id}
+
+</update>
+</mapper>
